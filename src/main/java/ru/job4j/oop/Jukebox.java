@@ -7,6 +7,7 @@ public class Jukebox {
         song.music(2);
         song.music(8);
     }
+
     public void music(int position) {
         if (position == 1) {
             System.out.println("Пусть бегут неуклюже");
