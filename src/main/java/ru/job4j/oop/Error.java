@@ -13,6 +13,7 @@ public class Error {
 
     public Error() {
     }
+
     public static void main(String[] args) {
         Error defaultError = new Error();
         Error newError = new Error(true, 1000, "Error!!!");

@@ -1,7 +1,7 @@
 package ru.job4j.oop;
 
 public class Battery {
-    int load;
+    private int load;
 
     public int getLoad() {
         return load;
@@ -12,7 +12,7 @@ public class Battery {
     }
 
     public void exchange(Battery another) {
-        another.load += getLoad();
-        load = 0;
+        another.load += this.load;
+        this.load = 0;
     }
 }
