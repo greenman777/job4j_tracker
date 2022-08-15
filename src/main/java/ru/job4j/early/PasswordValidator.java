@@ -1,5 +1,7 @@
 package ru.job4j.early;
 
+import java.text.DecimalFormat;
+
 public class PasswordValidator {
 
     public static String validate(String password) {
@@ -44,11 +46,12 @@ public class PasswordValidator {
             throw new IllegalArgumentException("Password must contain at least one special character");
         }
         String[] banString = {"qwerty", "12345", "password", "admin", "user"};
-        for (String ban: banString) {
+        for (String ban : banString) {
             if (password.toLowerCase().contains(ban)) {
                 throw new IllegalArgumentException("Password must not contain words: \"qwerty\", \"12345\", \"password\", \"admin\", \"user\"");
             }
         }
+        System.out.println("SSS" + "\t");
         return password;
     }
 
