@@ -1,7 +1,5 @@
 package ru.job4j.early;
 
-import java.text.DecimalFormat;
-
 public class PasswordValidator {
 
     public static String validate(String password) {
@@ -51,8 +49,6 @@ public class PasswordValidator {
                 throw new IllegalArgumentException("Password must not contain words: \"qwerty\", \"12345\", \"password\", \"admin\", \"user\"");
             }
         }
-        System.out.println("SSS" + "\t");
         return password;
     }
-
 }
