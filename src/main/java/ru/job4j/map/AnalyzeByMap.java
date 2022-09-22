@@ -8,7 +8,7 @@ public class AnalyzeByMap {
         double summa = 0;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                summa += subject.score();
+                summa += subject.getScore();
                 count++;
             }
         }
@@ -21,7 +21,7 @@ public class AnalyzeByMap {
         List<Label> labelList = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                summa += subject.score();
+                summa += subject.getScore();
                 count++;
             }
             labelList.add(new Label(pupil.name(), summa / count));
@@ -37,7 +37,7 @@ public class AnalyzeByMap {
         List<Label> labelList = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                scoreSubjects.put(subject.name(), scoreSubjects.getOrDefault(subject.name(), 0) + subject.score());
+                scoreSubjects.put(subject.getName(), scoreSubjects.getOrDefault(subject.getName(), 0) + subject.getScore());
             }
         }
         for (Map.Entry<String, Integer> scoreSubject : scoreSubjects.entrySet()) {
@@ -51,7 +51,7 @@ public class AnalyzeByMap {
         List<Label> labelList = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                summa += subject.score();
+                summa += subject.getScore();
             }
             labelList.add(new Label(pupil.name(), summa));
             summa = 0;
@@ -65,7 +65,7 @@ public class AnalyzeByMap {
         List<Label> labelList = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                scoreSubjects.put(subject.name(), scoreSubjects.getOrDefault(subject.name(), 0) + subject.score());
+                scoreSubjects.put(subject.getName(), scoreSubjects.getOrDefault(subject.getName(), 0) + subject.getScore());
             }
         }
         for (Map.Entry<String, Integer> scoreSubject : scoreSubjects.entrySet()) {
