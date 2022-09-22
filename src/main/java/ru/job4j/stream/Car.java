@@ -5,6 +5,14 @@ import java.time.LocalDate;
 public class Car {
     private String brand;
 
+    private String model;
+
+    private LocalDate created;
+
+    private double volume;
+
+    private String color;
+
     @Override
     public String toString() {
         return "Car{"
@@ -15,14 +23,6 @@ public class Car {
                 + ", color='" + color + '\''
                 + '}';
     }
-
-    private String model;
-
-    private LocalDate created;
-
-    private double volume;
-
-    private String color;
 
     static class Builder {
         private String brand;
