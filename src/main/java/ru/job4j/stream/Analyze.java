@@ -1,7 +1,6 @@
 package ru.job4j.stream;
 
 import java.util.Comparator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -24,7 +23,7 @@ public class Analyze {
     public static List<Tuple> averageScoreBySubject(Stream<Pupil> stream) {
         return stream
                 .flatMap(pupil -> pupil.subjects().stream())
-                .collect(Collectors.groupingBy(Subject::name, LinkedHashMap::new, Collectors.averagingDouble(Subject::score)))
+                .collect(Collectors.groupingBy(Subject::name, Collectors.averagingDouble(Subject::score)))
                 .entrySet().stream()
                 .map(t -> new Tuple(t.getKey(), t.getValue()))
                 .collect(Collectors.toList());
@@ -36,15 +35,15 @@ public class Analyze {
                         pupil.subjects().stream()
                                 .mapToInt(Subject::score)
                                 .sum()))
-                .max(Comparator.comparing(Tuple::score)).orElse(new Tuple("", 0));
+                .max(Comparator.comparing(Tuple::score)).orElse(null);
     }
 
     public static Tuple bestSubject(Stream<Pupil> stream) {
         return stream
                 .flatMap(pupil -> pupil.subjects().stream())
-                .collect(Collectors.groupingBy(Subject::name, LinkedHashMap::new, Collectors.summingDouble(Subject::score)))
+                .collect(Collectors.groupingBy(Subject::name, Collectors.summingDouble(Subject::score)))
                 .entrySet().stream()
                 .map(t -> new Tuple(t.getKey(), t.getValue()))
-                .max(Comparator.comparing(Tuple::score)).orElse(new Tuple("", 0));
+                .max(Comparator.comparing(Tuple::score)).orElse(null);
     }
 }
